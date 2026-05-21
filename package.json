@@ -36,7 +36,7 @@
   },
   "homepage": "https://github.com/xiaozhi666666/yapi-mcp#readme",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
