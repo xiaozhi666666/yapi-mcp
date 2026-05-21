@@ -1,11 +1,12 @@
 {
   "name": "yapi-fetch-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MCP server for reading YApi interface metadata by URL, interface ID, or project ID.",
   "license": "MIT",
   "type": "module",
   "mcpName": "io.github.xiaozhi666666/yapi-mcp",
   "bin": {
+    "yapi-fetch-mcp": "./build/src/index.js",
     "yapi-mcp": "./build/src/index.js"
   },
   "files": [
