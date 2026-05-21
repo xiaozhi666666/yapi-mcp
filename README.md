@@ -17,7 +17,7 @@ It is intentionally project-agnostic: this server fetches structured YApi data, 
 ## Install
 
 ```bash
-npm install -g @xiaozhi666666/yapi-mcp
+npm install -g yapi-fetch-mcp
 ```
 
 For local development:
@@ -53,7 +53,24 @@ Tool arguments can also pass `host`, `token`, and `cookie` directly.
 {
   "mcpServers": {
     "yapi": {
-      "command": "yapi-mcp",
+      "command": "npx",
+      "args": ["-y", "yapi-fetch-mcp"],
+      "env": {
+        "YAPI_HOST": "https://yapi.example.com",
+        "YAPI_TOKEN": "project-token"
+      }
+    }
+  }
+}
+```
+
+If installed globally, you can also use the binary directly:
+
+```json
+{
+  "mcpServers": {
+    "yapi": {
+      "command": "yapi-fetch-mcp",
       "env": {
         "YAPI_HOST": "https://yapi.example.com",
         "YAPI_TOKEN": "project-token"
@@ -144,6 +161,12 @@ Typical publish flow:
 npm publish --access public
 mcp-publisher login github
 mcp-publisher publish
+```
+
+The npm package name is:
+
+```text
+yapi-fetch-mcp
 ```
 
 The registry server name is:
