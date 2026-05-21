@@ -1,5 +1,5 @@
 {
-  "name": "@xiaozhi666666/yapi-mcp",
+  "name": "yapi-fetch-mcp",
   "version": "0.1.0",
   "description": "MCP server for reading YApi interface metadata by URL, interface ID, or project ID.",
   "license": "MIT",
