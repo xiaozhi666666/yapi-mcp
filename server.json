@@ -7,12 +7,12 @@
     "url": "https://github.com/xiaozhi666666/yapi-mcp",
     "source": "github"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "packages": [
     {
       "registryType": "npm",
-      "identifier": "@xiaozhi666666/yapi-mcp",
-      "version": "0.1.0",
+      "identifier": "yapi-fetch-mcp",
+      "version": "0.1.1",
       "transport": {
         "type": "stdio"
       },
