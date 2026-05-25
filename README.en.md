@@ -53,7 +53,48 @@ export YAPI_COOKIE="_yapi_token=...; _yapi_uid=..."
 
 Tool arguments can also pass `host`, `token`, and `cookie` directly.
 
+### How to Get a Long-Lived Token
+
+`YAPI_TOKEN` means a YApi project token. It is usually a long-lived token scoped to one YApi project. The common steps are:
+
+1. Open the target YApi project.
+2. Go to `Settings`, `Project Settings`, or a similar page.
+3. Find `Token`, `Project Token`, or `Open API Token`.
+4. Copy the token and configure it as `YAPI_TOKEN`.
+
+After configuration, this MCP server sends it as YApi's `token` query parameter, for example:
+
+```text
+/api/interface/get?id=123&token=project-token
+```
+
+Note: `YAPI_TOKEN` is not necessarily the same as an `accessToken` used by another auth system. If your `accessToken` can be used directly as YApi's `token` query parameter, you can put it in `YAPI_TOKEN`. If it must be sent as an `Authorization: Bearer ...` header, this version does not handle that automatically. Use `YAPI_COOKIE` instead, or extend the code for your private YApi auth flow.
+
 ## MCP Client Example
+
+### Codex Project-Level Configuration
+
+If you use Codex and want this MCP server to be enabled only for one project, create this file in that project's root directory:
+
+```text
+.codex/config.toml
+```
+
+Add:
+
+```toml
+[mcp_servers.yapi]
+command = "npx"
+args = ["-y", "yapi-fetch-mcp"]
+
+[mcp_servers.yapi.env]
+YAPI_HOST = "https://yapi.example.com"
+YAPI_TOKEN = "project-token"
+```
+
+Then open or restart the project in Codex. Codex loads project-level `.codex/config.toml` only after the project is trusted.
+
+Note: If `.codex/config.toml` is committed to Git, do not put a real `YAPI_TOKEN` in it. Commit an example config only, or keep the real token in your personal `~/.codex/config.toml`.
 
 Recommended `npx` setup:
 
