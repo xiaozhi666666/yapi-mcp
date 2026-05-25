@@ -1,6 +1,6 @@
 {
   "name": "yapi-fetch-mcp",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "MCP server for reading YApi interface metadata by URL, interface ID, or project ID.",
   "license": "MIT",
   "type": "module",
